@@ -1,0 +1,1 @@
+export const getTeamMembers = state => state.teamMembers
