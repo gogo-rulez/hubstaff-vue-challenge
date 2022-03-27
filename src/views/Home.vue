@@ -1,39 +1,48 @@
 <template>
   <div
     v-if="dataReady"
-    class="team_members p-5"
+    class="team_members py-5"
   >
-    <div class="team_members__title_wrap">
-      <h3 class="font-weight-normal">
-        Members
-      </h3>
-    </div>
+    <b-container>
+      <div
+        class="b-row"
+        no-gutters
+      >
+        <div class="b-col">
+          <div class="team_members__title_wrap">
+            <h3 class="font-weight-normal">
+              Members
+            </h3>
+          </div>
 
-    <!-- navigation tabs and search field -->
-    <TeamMembersPageNav
-      :get-team-members="getTeamMembers"
-      :search-members-value.sync="searchMembersValue"
-    />
+          <!-- navigation tabs and search field -->
+          <TeamMembersPageNav
+            :get-team-members="getTeamMembers"
+            :search-members-value.sync="searchMembersValue"
+          />
 
-    <!-- owner counter and tooltip -->
-    <TeamMembersOwnerCounter
-      :get-team-members="getTeamMembers"
-      :number-of-owners="numberOfOwners"
-    />
+          <!-- owner counter and tooltip -->
+          <TeamMembersOwnerCounter
+            :get-team-members="getTeamMembers"
+            :number-of-owners="numberOfOwners"
+          />
 
-    <!-- filters and invite member button -->
-    <TeamMembersTableFilters
-      :selected-role.sync="selectedRole"
-      :roles="roles"
-      :selected-time-tracking.sync="selectedTimeTracking"
-      :time-tracking="timeTracking"
-    />
+          <!-- filters and invite member button -->
+          <TeamMembersTableFilters
+            :selected-role.sync="selectedRole"
+            :roles="roles"
+            :selected-time-tracking.sync="selectedTimeTracking"
+            :time-tracking="timeTracking"
+          />
 
-    <!-- the results table -->
-    <TeamMembersTable
-      :team-members-list="teamMembersList"
-      :get-team-members="getTeamMembers"
-    />
+          <!-- the results table -->
+          <TeamMembersTable
+            :team-members-list="teamMembersList"
+            :get-team-members="getTeamMembers"
+          />
+        </div>
+      </div>
+    </b-container>
   </div>
 </template>
 

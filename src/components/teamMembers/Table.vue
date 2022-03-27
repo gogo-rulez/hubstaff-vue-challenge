@@ -9,6 +9,7 @@
       :fields="tableHeaders"
       :items="teamMembersList"
     >
+      <!-- checkboxes column -->
       <template #head(select)>
         <b-form-checkbox
           v-model="selectAllRows"
@@ -23,11 +24,15 @@
         <div class="d-flex align-items-center">
           <span
             class="d-inline-block mr-3 bg-success rounded-circle"
-            style="width: 20px; height: 20px;"
+            style="flex: 0 0 20px; height: 20px;"
           />
-          {{ field.value }}
+          <p class="h6 m-0">
+            {{ field.value }}
+          </p>
         </div>
       </template>
+
+      <!-- role column -->
       <template #cell(role)="data">
         <b-button
           class="border-0 shadow-none p-0"
@@ -41,6 +46,8 @@
           />
         </b-button>
       </template>
+
+      <!-- projects column -->
       <template #cell(projects)="data">
         <b-button
           class="border-0 shadow-none p-0"
@@ -54,6 +61,8 @@
           />
         </b-button>
       </template>
+
+      <!-- payment column -->
       <template #cell(payment)="data">
         <b-button
           class="border-0 shadow-none p-0"
@@ -67,6 +76,8 @@
           />
         </b-button>
       </template>
+
+      <!-- limits column -->
       <template #cell(limits)="data">
         <div class="d-flex align-items-center">
           <div class="d-flex flex-column">
@@ -97,6 +108,8 @@
           </b-button>
         </div>
       </template>
+
+      <!-- time tracking column -->
       <template #cell(time_tracking)="data">
         <p
           class="d-inline-block m-0 py-1 px-3 text-white text-center rounded h6"
@@ -105,6 +118,8 @@
           {{ data.value }}
         </p>
       </template>
+
+      <!-- actions column -->
       <template #cell(actions)>
         <b-dropdown
           :id="`dropdown`"
@@ -147,9 +162,8 @@ export default {
         {
           key: 'select',
           label: '',
-          tdClass: 'align-middle',
-          thClass: 'align-middle',
-          thStyle: 'width: 30px'
+          tdClass: 'align-middle p-0',
+          thClass: 'align-middle p-0'
         },
         {
           key: 'name',
